@@ -1,5 +1,5 @@
 
-
+import logo from '../assets/Logo.png'
 const Footer = () => {
     return (
         <footer className="text-black bg-white border border-gray-200 rounded-[36px] mx-2 py-3 px-4 md:py-0 md:px-6 lg:px-8 xl:mx-10 dark:bg-gray-800 dark:border-gray-700">
@@ -7,7 +7,12 @@ const Footer = () => {
           {/* <!-- Grid --> */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
             <div className="col-span-full lg:col-span-1">
-              <a className="flex-none text-xl font-semibold " href="#" aria-label="Brand">Brand</a>
+              <div className='space-y-5'>
+              <a className="flex-none text-xl font-semibold " href="#" aria-label="Brand"><img className='w-[60%]' src={logo} alt="" /></a>
+              <p>Price is in US dollars and excludes tax and handling fees</p>
+              <p>Price is in US dollars and excludes tax and handling fees</p>
+             
+              </div>
             </div>
             {/* <!-- End Col --> */}
       
@@ -35,14 +40,18 @@ const Footer = () => {
             {/* <!-- End Col --> */}
       
             <div className="col-span-1">
-              <h4 className="">Stay up to date</h4>
-      
-              <form>
+              <h4 className=" font-bold">Stay up to date</h4>
+
+              <div className='space-y-5'>
                 
                 <p className="mt-3 text-sm ">
                   New UI kits or big discounts. Never spam.
                 </p>
-              </form>
+                <p><span className='font-bold'>Address:</span> MOhakhali Wareless,
+                Colommia Supper market
+              </p>
+              <p>Tel:991092092</p>
+              </div>
             </div>
             {/* <!-- End Col --> */}
           </div>
@@ -50,7 +59,7 @@ const Footer = () => {
       
           <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
             <div className="flex justify-between items-center">
-              <p className="text-sm ">© 2022 Preline. All rights reserved.</p>
+              <p className="text-sm ">© 2023 Cabsy. All rights reserved.</p>
             </div>
             {/* <!-- End Col --> */}
       
