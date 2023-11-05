@@ -1,7 +1,59 @@
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Authcontext } from "../Provider/Authprovider";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registation = () => {
+    const [alerror, setAlError] = useState("");
+    const [success,setSuccess]=useState("");
+    const {createuser}=useContext(Authcontext);
+
+
+    const handlesignup=(event)=>{
+        event.preventDefault();
+        const form=event.target;
+        const name=form.name.value;
+        const email=form.email.value;
+        const password=form.password.value;
+        console.log(name,email,password);
+        const accepted = event.target.myCheckbox.checked;
+        console.log(name,email,password);
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters long');
+      return;
+    } else if (!/^.*?[A-Z].*?$/.test(password)) {
+      toast.error('Password must contain at least 1 uppercase letter');
+      return;
+    }
+     else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
+      toast.error('Password must contain at least 1 special character');
+      return;
+    } else if (!accepted) {
+      toast.error('You must accept the terms and conditions');
+      return;
+    }
+    else{
+        setAlError("");
+        if (email) {
+            createuser(email,password)
+          .then(result=>{
+            toast.success('Registration Successful');
+          console.log(result.user); 
+          setSuccess(result.user); 
+          <Link to={'/login'}></Link>
+           })
+          .catch(error=>{
+            toast.error('This Email Alreay in Register.Please go to Login page');
+            console.log(error);
+          })
+        }
+      }
+
+    }
+
   return (
     <div >
          <Helmet>
@@ -66,9 +118,47 @@ const Registation = () => {
                   </div>
 
                   {/* <!-- Form --> */}
-                  <form>
+                  <form onSubmit={handlesignup}>
                     <div className="grid gap-y-4">
                       {/* <!-- Form Group --> */}
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm mb-2 dark:text-white"
+                        >
+                          Enter Name
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Name"
+                            className="py-3 px-4 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                            required
+                            aria-describedby="email-error"
+                          />
+                          <div className="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
+                            <svg
+                              className="h-5 w-5 text-red-500"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              viewBox="0 0 16 16"
+                              aria-hidden="true"
+                            >
+                              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <p
+                          className="hidden text-xs text-red-600 mt-2"
+                          id="email-error"
+                        >
+                          Please include a valid email address so we can get
+                          back to you
+                        </p>
+                      </div>
                       <div>
                         <label
                           htmlFor="email"
@@ -152,17 +242,17 @@ const Registation = () => {
                       {/* <!-- Form Group --> */}
                       <div>
                         <label
-                          htmlFor="confirm-password"
+                     
                           className="block text-sm mb-2 dark:text-white"
                         >
-                          Confirm Password
+                          photo_url
                         </label>
                         <div className="relative">
                           <input
-                            type="password"
-                            id="confirm-password"
-                            name="confirm-password"
-                            placeholder="Confirm Password"
+                            type="url"
+                            id="photo_url"
+                            name="photo_url"
+                            placeholder="photo_url"
                             className="py-3 px-4 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                             required
                             aria-describedby="confirm-password-error"
@@ -191,28 +281,11 @@ const Registation = () => {
 
                       {/* <!-- Checkbox --> */}
                       <div className="flex items-center">
-                        <div className="flex">
-                          <input
-                            id="remember-me"
-                            name="remember-me"
-                            type="checkbox"
-                            className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                          />
-                        </div>
-                        <div className="ml-3">
-                          <label
-                            htmlFor="remember-me"
-                            className="text-sm dark:text-white"
-                          >
-                            I accept the{" "}
-                            <a
-                              className="text-blue-600 decoration-2 hover:underline font-medium"
-                              href="#"
-                            >
-                              Terms and Conditions
-                            </a>
-                          </label>
-                        </div>
+                      
+                        <div className='flex gap-3 my-3'>
+            <input type="checkbox" id="myCheckbox" />
+            <label htmlFor="myCheckbox">Accept Our <a className="text-blue-600" href="">Terms and Condition</a> </label>
+          </div>
                       </div>
                       {/* <!-- End Checkbox --> */}
 
@@ -220,7 +293,7 @@ const Registation = () => {
                         type="submit"
                         className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
                       >
-                        Sign up
+                     <NavLink to={'/login'}>Signup</NavLink>
                       </button>
                     </div>
                   </form>

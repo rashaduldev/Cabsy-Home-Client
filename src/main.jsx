@@ -9,6 +9,10 @@ import Home from './Pages/Home';
 import Root from './Root/Root';
 import Login from './Pages/Login';
 import Registation from './Pages/Registation';
+import Authprovider from './Provider/Authprovider';
+// eslint-disable-next-line no-unused-vars
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +37,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <Authprovider>
   <RouterProvider router={router} />
+  </Authprovider>
+  <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
   </React.StrictMode>,
 )
