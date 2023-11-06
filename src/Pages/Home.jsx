@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Slider from "../Components/Slider";
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
             This is home
+            <Slider></Slider>
         </div>
     );
 };

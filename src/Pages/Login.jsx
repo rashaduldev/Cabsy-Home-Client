@@ -1,7 +1,74 @@
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Authcontext, auth } from "../Provider/Authprovider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 
 const Login = () => {
+  const {signin}=useContext(Authcontext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
+
+  const [registerError, setRegisterError] = useState('');
+  const [mgssuccess, setSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  // const emailRef = useRef(null);
+  const [value, setValue] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form=e.target;
+    const email=form.email.value;
+    const password=form.password.value;
+    console.log(email,password);
+
+    // Check if the checkbox is not accepted
+    const accepted = e.target.myCheckbox.checked;
+
+    if (!accepted) {
+      toast.error('You must accept the terms and conditions');
+      return;
+    }
+
+    // Continue with the login process
+    if (email && password) {
+      signin(email, password)
+        .then(result => {
+          toast.success('Login Successful');
+          setSuccess(result);
+          navigate(location?.state ? location.state : '/');
+        })
+        .catch(error => {
+          toast.error(error.message);
+          console.log(error.message);
+        });
+    }
+  }
+
+  // google signin
+  const googleSignin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(res => {
+        setValue(res);
+        if (res.user) {
+          // Successful login with Google, redirect to the root page
+          toast.success('Login Successful');
+          navigate('/');
+        } else {
+          // Login with Google was not successful, stay on the login page
+        }
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  };
+
+
   return (
     <div>
       <Helmet>
@@ -32,7 +99,7 @@ const Login = () => {
                   </div>
 
                   <div className="mt-5">
-                    <button
+                    <button onClick={googleSignin}
                       type="button"
                       className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
                     >
@@ -68,7 +135,7 @@ const Login = () => {
                     </div>
 
                     {/* <!-- Form --> */}
-                    <form>
+                    <form onSubmit={handleLogin}>
                       <div className="grid gap-y-4">
                         {/* <!-- Form Group --> */}
                         <div>
@@ -161,23 +228,12 @@ const Login = () => {
 
                         {/* <!-- Checkbox --> */}
                         <div className="flex items-center">
-                          <div className="flex">
-                            <input
-                              id="remember-me"
-                              name="remember-me"
-                              type="checkbox"
-                              className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                            />
-                          </div>
-                          <div className="ml-3">
-                            <label
-                              htmlFor="remember-me"
-                              className="text-sm dark:text-white"
-                            >
-                              Remember me
-                            </label>
-                          </div>
-                        </div>
+                      
+                      <div className='flex gap-3 my-3'>
+          <input type="checkbox" id="myCheckbox" />
+          <label htmlFor="myCheckbox">Accept Our <a className="text-blue-600" href="">Terms and Condition</a> </label>
+        </div>
+                    </div>
                         {/* <!-- End Checkbox --> */}
 
                         <button
@@ -198,6 +254,7 @@ const Login = () => {
       </div>
     </div>
   );
+  
 };
 
 export default Login;
