@@ -1,13 +1,10 @@
-import { Link } from 'react-router-dom';
-import logo from '../assets/Logo.png'
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/Logo.png';
 import { useContext } from 'react';
 import { Authcontext } from '../Provider/Authprovider';
 
 const Navber = () => {
-  const {user,logout}=useContext(Authcontext)
-  console.log(user?.email)
-  console.log(user?.photoURL)
-  console.log(user?.displayName)
+  const { user, logout } = useContext(Authcontext);
 
   const handleLogout = () => {
     logout()
@@ -18,49 +15,61 @@ const Navber = () => {
         console.log(err);
       });
   }
-const navitems=(
+
+  const navitems = (
     <>
-     <a
-              className="font-medium text-blue-600 md:py-6 dark:text-blue-500"
-              href="#"
-              aria-current="page"
-            >
-              <Link to={'/'}>Home</Link>
-            </a>
-            <a
-              className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
-              href="#"
-            >
-              Services
-            </a>
-          
+    <NavLink
+  to="/"
+  style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "black",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }}
+>
+  Home
+</NavLink>
+    <NavLink
+  to="/s"
+  style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "black",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }}
+>
+Services
+</NavLink>
     </>
-)
-const dropdown=(
+  );
+
+  const dropdown = (
     <>
       <button
-                type="button"
-                className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500 "
-              >
-                DashBoard
-                <svg
-                  className="ml-2 w-2.5 h-2.5 text-gray-600"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  ></path>
-                </svg>
-              </button>
+        type="button"
+        className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover-text-gray-500 "
+      >
+        DashBoard
+        <svg
+          className="ml-2 w-2.5 h-2.5 text-gray-600"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          ></path>
+        </svg>
+      </button>
     </>
-)
+  );
 
   return (
     <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
@@ -121,22 +130,59 @@ const dropdown=(
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                   href="#"
                 >
-                 <Link to={'/addservice'}>My-services</Link>
+                 {/* <Link to={'/addservice'}>My-services</Link> */}
+                 <NavLink
+                  to="/myservice"
+                  style={({ isActive, isPending, isTransitioning }) => {
+                    return {
+                      fontWeight: isActive ? "bold" : "",
+                      color: isPending ? "red" : "black",
+                      viewTransitionName: isTransitioning ? "slide" : "",
+                    };
+                  }}
+                >
+                My-services
+                </NavLink>
                 </a>
+               
                
 
                 <a
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                   href="#"
                 >
-                  <Link to={'/addservice'}> Add-services</Link>
+                  {/* <Link to={'/addservice'}> Add-services</Link> */}
+                  <NavLink
+                  to="/addservice"
+                  style={({ isActive, isPending, isTransitioning }) => {
+                    return {
+                      fontWeight: isActive ? "bold" : "",
+                      color: isPending ? "red" : "black",
+                      viewTransitionName: isTransitioning ? "slide" : "",
+                    };
+                  }}
+                >
+                Add-services
+                </NavLink>
                  
                 </a>
                 <a
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                   href="#"
                 >
-                My-schedules
+                   <NavLink
+                  to="/schedules"
+                  style={({ isActive, isPending, isTransitioning }) => {
+                    return {
+                      fontWeight: isActive ? "bold" : "",
+                      color: isPending ? "red" : "black",
+                      viewTransitionName: isTransitioning ? "slide" : "",
+                    };
+                  }}
+                >
+               My-schedules
+                </NavLink>
+                
                 </a>
               </div>
             </div>

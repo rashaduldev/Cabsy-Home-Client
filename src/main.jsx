@@ -15,11 +15,15 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Addservices from './Pages/Addservices';
 import Privateroute from './Routes/Privateroute';
+import MySchedules from './Pages/MySchedules';
+import Myservices from './Pages/Myservices';
+import Errorpage from './Pages/Errorpage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Errorpage></Errorpage>,
     children:[
       {
         path:"/",
@@ -28,6 +32,14 @@ const router = createBrowserRouter([
       {
         path:"addservice",
         element:<Privateroute><Addservices></Addservices></Privateroute>
+      },
+      {
+        path:"schedules",
+        element:<Privateroute><MySchedules></MySchedules></Privateroute>
+      },
+      {
+        path:"myservice",
+        element:<Privateroute><Myservices></Myservices></Privateroute>
       },
       {
         path:"login",

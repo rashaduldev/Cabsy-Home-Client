@@ -82,7 +82,7 @@ const Addservices = () => {
 
       <form onSubmit={handleFormServices} className="max-w-full bg-white border border-gray-200 rounded-[36px] p-10 my-5">
         <h2 className="font-bold text-center text-4xl mb-10">Add Service</h2>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div className="mb-4">
             <label className="block text-gray-700">Picture URL of the Service</label>
             <input
