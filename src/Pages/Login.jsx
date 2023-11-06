@@ -14,9 +14,9 @@ const Login = () => {
   const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
 
-  const [registerError, setRegisterError] = useState('');
+  // const [registerError, setRegisterError] = useState('');
   const [mgssuccess, setSuccess] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   // const emailRef = useRef(null);
   const [value, setValue] = useState('');
 

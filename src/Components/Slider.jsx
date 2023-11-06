@@ -1,5 +1,5 @@
 import bgimg from '../assets/bgimg.jpg';
-import hero from '../assets/hero-app-mockup-silver.png';
+// import hero from '../assets/hero-app-mockup-silver.png';
 
 const Slider = () => {
   const sliderContainerStyle = {

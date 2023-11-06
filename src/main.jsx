@@ -13,6 +13,8 @@ import Authprovider from './Provider/Authprovider';
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Addservices from './Pages/Addservices';
+import Privateroute from './Routes/Privateroute';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>
+      },
+      {
+        path:"addservice",
+        element:<Privateroute><Addservices></Addservices></Privateroute>
       },
       {
         path:"login",

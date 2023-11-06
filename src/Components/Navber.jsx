@@ -42,7 +42,7 @@ const dropdown=(
                 type="button"
                 className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500 "
               >
-                Dropdown
+                DashBoard
                 <svg
                   className="ml-2 w-2.5 h-2.5 text-gray-600"
                   width="16"
@@ -121,7 +121,7 @@ const dropdown=(
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                   href="#"
                 >
-                 My-services
+                 <Link to={'/addservice'}>My-services</Link>
                 </a>
                
 
@@ -129,7 +129,8 @@ const dropdown=(
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                   href="#"
                 >
-                  Add-services
+                  <Link to={'/addservice'}> Add-services</Link>
+                 
                 </a>
                 <a
                   className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
@@ -146,7 +147,7 @@ const dropdown=(
               href="#"
             >
         {
-          user?.email?   <div>
+          user?.email?   <div className='items-center z-10'>
           <div className="hs-dropdown relative inline-flex">
           <button id="hs-dropdown-custom-trigger" type="button" className="hs-dropdown-toggle py-1 pl-1 pr-3 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
         <img className='w-8 h-auto rounded-full' src={user?.photoURL} alt="" />
@@ -169,7 +170,7 @@ const dropdown=(
       <Link to={'/login'}>Logout</Link>
     </a>
   </div>
-</div>
+</div>    
           </div>
          :   <div className='text-md'>  <Link to={'/login'}>Login</Link></div>
         }
