@@ -18,6 +18,8 @@ import Privateroute from './Routes/Privateroute';
 import MySchedules from './Pages/MySchedules';
 import Myservices from './Pages/Myservices';
 import Errorpage from './Pages/Errorpage';
+import Allservices from './Pages/Allservices';
+import Viewdetails from './Pages/Viewdetails';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
       {
         path:"myservice",
         element:<Privateroute><Myservices></Myservices></Privateroute>
+      },
+      {
+        path:"viewdetails",
+        element:<Privateroute><Viewdetails></Viewdetails></Privateroute>
+      },
+      {
+        path:"allservices",
+        element:<Allservices></Allservices>,
+        loader:()=>fetch('http://localhost:3000/services')
+        
       },
       {
         path:"login",

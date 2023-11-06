@@ -31,7 +31,7 @@ const Navber = () => {
   Home
 </NavLink>
     <NavLink
-  to="/s"
+  to="/allservices"
   style={({ isActive, isPending, isTransitioning }) => {
     return {
       fontWeight: isActive ? "bold" : "",
