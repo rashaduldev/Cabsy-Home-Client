@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { Authcontext, auth } from "../Provider/Authprovider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
