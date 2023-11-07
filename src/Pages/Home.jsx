@@ -4,6 +4,7 @@ import HomeBookRide from "../Components/homeBookRide";
 import MainBuilding from "../Components/MainBuilding";
 import { Link, useLoaderData } from "react-router-dom";
 import { useState } from "react";
+import FAQsection from "../Components/FAQsection";
 
 const Home = () => {
   const homeLoader = useLoaderData();
@@ -70,6 +71,7 @@ const Home = () => {
       </div>
       <HomeBookRide />
       <MainBuilding />
+      <FAQsection></FAQsection>
     </div>
   );
 };
