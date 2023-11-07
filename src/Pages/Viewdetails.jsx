@@ -50,6 +50,24 @@ const Viewdetails = () => {
         prices
     }
     console.log('object',bokking)
+    fetch('http://localhost:3000/booking', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(bokking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success('Services added successfully');
+        console.log(data);
+        // resetForm();
+      })
+      .catch((error) => {
+        toast.error('Error adding services');
+        console.error(error);
+      });
+
     toast.success('Purchased Confirmed');
     setTimeout(() => {
         

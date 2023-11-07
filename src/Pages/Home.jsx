@@ -9,6 +9,7 @@ import FAQsection from "../Components/FAQsection";
 const Home = () => {
   const homeLoader = useLoaderData();
   const initialDisplayCount = 4; // Change the initial display count to 4
+  // eslint-disable-next-line no-unused-vars
   const [displayCount, setDisplayCount] = useState(initialDisplayCount);
 
   return (

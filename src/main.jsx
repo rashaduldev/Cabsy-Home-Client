@@ -40,7 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path:"schedules",
-        element:<Privateroute><MySchedules></MySchedules></Privateroute>
+        element:<Privateroute><MySchedules></MySchedules></Privateroute>,
+        loader:()=>fetch('http://localhost:3000/booking')
       },
       {
         path:"myservice",
