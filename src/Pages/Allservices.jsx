@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Allservices = () => {
   const services = useLoaderData();
+  // console.log(services)
   const initialDisplayCount = 6;
   const [displayCount, setDisplayCount] = useState(initialDisplayCount);
   const [searchQuery, setSearchQuery] = useState("");
