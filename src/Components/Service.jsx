@@ -3,7 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
-  const { _id, pictureURL, serviceName, description, serviceArea, price } = service;
+  console.log(service)
+  const { _id, pictureURL, serviceName, description, serviceArea, price,userName,userpictureURL } = service;
 
   return (
     <div>
@@ -29,9 +30,11 @@ const Service = ({ service }) => {
               </button>
             </Link>
           </div>
-          <div className="px-5">
-            <p>Auth Name:</p>
-            <p>img</p>
+          <div className="px-5 text-center">
+            <h2 className='text-center font-bold'>Auth info</h2>
+            <p>{userName}</p>
+            {/* <p>img {userpictureURL}</p> */}
+            <img className='h-16 w-16 rounded-full text-center my-3' src={userpictureURL} alt="" />
           </div>
         </div>
       </div>

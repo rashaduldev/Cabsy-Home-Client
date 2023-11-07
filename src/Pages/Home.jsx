@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Slider from "../Components/Slider";
 import Services from "../Components/Services";
 import HomeBookRide from "../Components/homeBookRide";
+import MainBuilding from "../Components/MainBuilding";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <Slider></Slider>
             <Services></Services>
             <HomeBookRide></HomeBookRide>
+            <MainBuilding></MainBuilding>
         </div>
     );
 };

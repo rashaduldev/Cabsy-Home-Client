@@ -7,9 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Addservices = () => {
   const { user } = useContext(Authcontext);
+  console.log(user);
 
   const [serviceData, setServiceData] = useState({
+
     pictureURL: '',
+    userpictureURL: user?.photoURL,
     serviceName: '',
     userName: user?.displayName,
     userEmail: user?.email,
@@ -37,6 +40,7 @@ const Addservices = () => {
     const form = event.target;
     const pictureURL = form.pictureURL.value;
     const serviceName = form.serviceName.value;
+    const userpictureURL = user?.photoURL;
     const userName = form.userName.value;
     const useremail = form.useremail.value;
     const price = form.price.value;
@@ -51,7 +55,9 @@ const Addservices = () => {
       price,
       serviceArea,
       description,
+      userpictureURL,
     };
+    console.log(serviceUser);
 
     fetch('http://localhost:3000/services', {
       method: 'POST',
