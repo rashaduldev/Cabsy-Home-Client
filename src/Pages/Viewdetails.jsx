@@ -5,6 +5,7 @@ import { Authcontext } from "../Provider/Authprovider";
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet";
 
 const Viewdetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,7 @@ const Viewdetails = () => {
     useremail,
     description,
     price,
+    userpictureURL
   } = datas;
   const openModal = () => {
     setIsModalOpen(true);
@@ -57,25 +59,41 @@ const Viewdetails = () => {
 
   return (
     <div className="my-5 mx-10">
+        <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cabsy-details-service</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="flex flex-col items-center space-y-4">
         <img
           src={pictureURL}
           alt="Service Image"
           className="w-1/2 rounded-md h-64 object-cover"
         />
-        <h2 className="text-2xl font-bold">Service Name:{serviceName}</h2>
+        
+        <div className="flex justify-between lg:w-1/2 flex-col lg:flex-row gap-10 items-center">
+            <div>
+            <h2 className="text-2xl font-bold">Service Name:{serviceName}</h2>
         <p className="text-gray-600">Service Description:{description}</p>
-        <div className="flex items-center space-x-2">
+      
+        <p className="text-xl font-semibold">Service Price: ${price}</p>
+        
+            </div>
+            <div className="">
+            <div className="flex flex-col items-center space-y-2">
+            <h2>Auth</h2>
           <img
-            src="service-provider-image-url"
+            src={userpictureURL}
             alt="Service Provider"
             className="w-10 h-10 rounded-full"
           />
           <span className="text-gray-700">
-            Service Provider Name:{userName}
+            {userName}
           </span>
         </div>
-        <p className="text-xl font-semibold">Service Price: ${price}</p>
+            </div>
+            
+        </div>
         <button
           onClick={openModal}
           type="button"

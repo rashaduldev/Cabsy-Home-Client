@@ -1,6 +1,10 @@
 
 
-const Services = () => {
+
+// Popular services
+const Services = () => {  
+
+  
     return (
         <div className="mx-10 my-5">
             <h1 className="text-center text-5xl font-bold my-5">Popular Services</h1>

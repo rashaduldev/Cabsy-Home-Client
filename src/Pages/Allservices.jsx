@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Service from "../Components/Service";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Allservices = () => {
   const services = useLoaderData();
@@ -32,6 +33,11 @@ const Allservices = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cabsy-All-service</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {/* <h1>All Services ({services.length})</h1> */}
       <div className="flex justify-center mt-4 mb-5 relative">
         <input
