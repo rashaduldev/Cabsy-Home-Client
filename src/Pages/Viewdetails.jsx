@@ -17,7 +17,7 @@ const Viewdetails = () => {
   console.log(datas);
   const {
     pictureURL,
-    serviceArea,
+    // serviceArea,
     serviceName,
     userName,
     useremail,
@@ -27,15 +27,33 @@ const Viewdetails = () => {
   const openModal = () => {
     setIsModalOpen(true);
   };
-  const handlePurchase = () => {
-    console.log('object')
-    toast.success('Purched Confirmed');
+  const handlePurchase = (e) => {
+    e.preventDefault();
+    const form=e.target;
+    const servicename=serviceName;
+    const serviceimage=pictureURL;
+    const serviceemail=useremail;
+    const prices=price;
+    const Useremail=user?.email;
+    const serviceDate=form.serviceDate.value;
+    const specialInstructions=form.specialInstructions.value;
 
-    // Implement the logic to add the booking to the database
-    // You can use the data from your form inputs
-    // Make an API request to add the booking, for example
+    const bokking={
+        servicename,
+        serviceimage,
+        serviceemail,
+        Useremail,
+        serviceDate,
+        specialInstructions,
+        prices
+    }
+    console.log('object',bokking)
+    toast.success('Purchased Confirmed');
+    setTimeout(() => {
+        
+        window.location.reload();
+      }, 1000);
   };
-  //   const {serviceName, description, serviceArea, price } = detailsData;
 
   return (
     <div className="my-5 mx-10">
@@ -102,7 +120,7 @@ const Viewdetails = () => {
                     </button>
                   </div>
                   <div className="bg-gray-100 p-4">
-                    <form action="" className="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+                    <form onSubmit={handlePurchase} action="" className="max-w-md mx-auto bg-white p-8 rounded shadow-md">
                       <h1 className="text-2xl font-semibold text-center mb-6">
                         Please confirm Booking
                       </h1>
@@ -139,7 +157,7 @@ const Viewdetails = () => {
                         hidden
                           type="text"
                           id="servicename"
-                          name="servicename"
+                          name="serviceimage"
                           
                           value={pictureURL}
                           required
@@ -214,16 +232,30 @@ const Viewdetails = () => {
                           className="w-full border border-gray-300 rounded p-2"
                         ></textarea>
                       </div>
+                      <div className="mb-4">
+                        <label
+                          className="block text-gray-700 text-sm font-bold mb-2"
+                          htmlFor="serviceDate"
+                        >
+                          Prices
+                        </label>
+                        <input
+                          type="text"
+                          id="price"
+                          name="price"
+                          value={price}
+                          disabled
+                          required
+                          className="w-full border border-gray-300 rounded p-2"
+                        />
+                      </div>
                       <div className="mt-6">
 
-                        <button onClick={handlePurchase} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
-                          Purchase this Service
+                        <button 
+                         type="submit" 
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                          Booking this Service
                         </button>
-                        <button type="button" className="hs-dropdown-toggle py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-overlay="#hs-basic-modal">
-                        Close
-                        </button>
-                            
-                        
                       </div>
                     </form>
                   </div>

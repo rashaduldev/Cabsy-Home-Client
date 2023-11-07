@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Slider from "../Components/Slider";
 import Services from "../Components/Services";
+import HomeBookRide from "../Components/homeBookRide";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             This is home
             <Slider></Slider>
             <Services></Services>
+            <HomeBookRide></HomeBookRide>
         </div>
     );
 };
