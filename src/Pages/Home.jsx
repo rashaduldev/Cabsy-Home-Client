@@ -13,7 +13,6 @@ const Home = () => {
                 <title>Cabsy-Home</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            This is home
             <Slider></Slider>
             <Services></Services>
             <HomeBookRide></HomeBookRide>

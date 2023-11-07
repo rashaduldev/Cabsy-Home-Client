@@ -1,10 +1,20 @@
 import bgimg from '../assets/bgimg.jpg';
+import { useTypewriter ,Cursor} from 'react-simple-typewriter'
 // import hero from '../assets/hero-app-mockup-silver.png';
 import { motion } from "framer-motion"
 import { fadeIn } from "../variants"
 
 
 const Slider = () => {
+
+  const [text] = useTypewriter({
+    words: ['Affordably'],
+    loop: 0
+  })
+  const [text2] = useTypewriter({
+    words: ['eaque ipsa quae ab illo inventore'],
+    loop: 0
+  })
   const sliderContainerStyle = {
     backgroundImage: `url(${bgimg})`,
     backgroundSize: 'cover',
@@ -40,7 +50,7 @@ const Slider = () => {
             viewport={{ once:false,amount:0.7 }}
           
           className="text-5xl font-bold text-white">
-          Get Where You Need to Go, <br /> Safely and Affordably
+          Get Where You Need to Go, <br />Safely and  {text} <Cursor cursorColor='red' />
           </motion.h3>
           <motion.p 
             variants={fadeIn("up",0.3)}
@@ -48,7 +58,7 @@ const Slider = () => {
             whileInView={"show"}
             viewport={{ once:false,amount:0.7 }}
           className="mt-8 text-white">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, <br /> totam rem aperiam, eaque ipsa quae ab illo inventore
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, <br /> totam rem aperiam, {text2}
           </motion.p>
          <div className='flex gap-5 justify-center mt-10'>
          <motion.button 

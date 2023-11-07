@@ -1,15 +1,17 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import Services from './Services';
+import { useTypewriter } from "react-simple-typewriter";
 
 const MainBuilding = () => {
-  const position = [5, -0.09];
+    const [text] = useTypewriter({
+        words: ['Locations & Hours'],
+        loop: 0
+      })
 
   return (
     <div className="mx-10 my-10">
       <h2 className="text-5xl text-center font-bold">Our Main Building</h2>
       <div className="flex flex-col lg:flex-row my-8 lg:mt-20">
         <div className="lg:flex-1 lg:w-1/2 space-y-5">
-          <h2 className="text-4xl">Locations & Hours</h2>
+          <h2 className="text-4xl">{text}</h2>
           <p className="text-lg">
             For over 30 years, we have been providing comprehensive orthopedic
             services to patients of all ages across central Indiana.
