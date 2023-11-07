@@ -1,3 +1,5 @@
+
+
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/Logo.png';
 import { useContext } from 'react';
@@ -193,8 +195,15 @@ Services
               href="#"
             >
         {
-          user?.email?   <div className='items-center z-10'>
-          <div className="hs-dropdown relative inline-flex">
+          user?.email?   <div
+         
+          className='items-center z-10'>
+          <div
+      
+
+
+
+          className="hs-dropdown relative inline-flex">
           <button id="hs-dropdown-custom-trigger" type="button" className="hs-dropdown-toggle py-1 pl-1 pr-3 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
         <img className='w-8 h-auto rounded-full' src={user?.photoURL} alt="" />
           {/* <img class="w-8 h-auto rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Maria"> */}

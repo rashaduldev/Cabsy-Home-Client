@@ -1,5 +1,8 @@
 import bgimg from '../assets/bgimg.jpg';
 // import hero from '../assets/hero-app-mockup-silver.png';
+import { motion } from "framer-motion"
+import { fadeIn } from "../variants"
+
 
 const Slider = () => {
   const sliderContainerStyle = {
@@ -30,20 +33,42 @@ const Slider = () => {
       <div className='rounded-xl' style={overlayStyle}></div>
       <div className="flex flex-auto justify-center items-center p-4 md:p-5 h-full" style={textStyle}>
         <div className="text-center">
-          <h3 className="text-5xl font-bold text-white">
+          <motion.h3 
+            variants={fadeIn("down",0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once:false,amount:0.7 }}
+          
+          className="text-5xl font-bold text-white">
           Get Where You Need to Go, <br /> Safely and Affordably
-          </h3>
-          <p className="mt-8 text-white">
+          </motion.h3>
+          <motion.p 
+            variants={fadeIn("up",0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once:false,amount:0.7 }}
+          className="mt-8 text-white">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, <br /> totam rem aperiam, eaque ipsa quae ab illo inventore
-          </p>
+          </motion.p>
          <div className='flex gap-5 justify-center mt-10'>
-         <button type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+         <motion.button 
+           variants={fadeIn("right",0.4)}
+           initial="hidden"
+           whileInView={"show"}
+           viewport={{ once:false,amount:0.7 }}
+         
+         type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
          Book Our Ride
-            </button>
+            </motion.button>
             {/* <button className='btn'>Book Our Ride </button> */}
-            <button type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border-2 border-gray-200 font-semibold text-gray-500 hover:text-white hover:bg-gray-500 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 transition-all text-sm  dark:hover:bg-gray-600 dark:border-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-800">
+            <motion.button 
+              variants={fadeIn("left",0.4)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once:false,amount:0.7 }}
+            type="button" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border-2 border-gray-200 font-semibold text-gray-500 hover:text-white hover:bg-gray-500 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 transition-all text-sm  dark:hover:bg-gray-600 dark:border-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-800">
             Learn More
-            </button>
+            </motion.button>
          </div>
         </div>
       </div>
