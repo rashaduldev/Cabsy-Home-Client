@@ -21,6 +21,7 @@ import Errorpage from './Pages/Errorpage';
 import Allservices from './Pages/Allservices';
 import Viewdetails from './Pages/Viewdetails';
 import Service from './Components/Service';
+import Updateservices from './Pages/Updateservices';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
       {
         path:"addservice",
         element:<Privateroute><Addservices></Addservices></Privateroute>
+      },
+      {
+        path:"update/:id",
+        element:<Privateroute><Updateservices></Updateservices></Privateroute>,
+        loader:()=>fetch('http://localhost:3000/booking')
       },
       {
         path:"schedules",
