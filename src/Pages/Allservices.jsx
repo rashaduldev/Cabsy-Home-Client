@@ -38,7 +38,7 @@ const Allservices = () => {
         <title>Cabsy-All-service</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      {/* <h1>All Services ({services.length})</h1> */}
+
       <div className="flex justify-center mt-4 mb-5 relative">
         <input
           type="text"

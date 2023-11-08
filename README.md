@@ -18,7 +18,7 @@ This is an Ride realeted website built using React,express js, allowing users to
 
 - **Riding Reviews :**
   - Allow users to leave services reviews.
-  - Product pages display average services.  
+  - Services pages display average services.  
 
 - **Responsive Design:**
   - The website is fully responsive, ensuring a seamless riding experience on various devices.
@@ -31,6 +31,6 @@ This is an Ride realeted website built using React,express js, allowing users to
 
 ## Demo
 
-[Link to Demo]()
+[Link to Demo](https://hesitant-history.surge.sh/)
 
 

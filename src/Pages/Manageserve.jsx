@@ -25,7 +25,7 @@ const Manageserve = ({service,delServices ,setDelservices }) => {
             if (result.isConfirmed) {
             // 
 
-            fetch(`https://backend-gztzc30ti-rashaduldev.vercel.app/services/${_id}`,{
+            fetch(`https://backend-nu-sage-10.vercel.app/services/${_id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

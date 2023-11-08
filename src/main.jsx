@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services'),
+        loader:()=>fetch('https://backend-nu-sage-10.vercel.app/services'),
       },
       {
         path:"addservice",
@@ -43,33 +43,33 @@ const router = createBrowserRouter([
       {
         path:"manageservice",
         element:<Privateroute><Manageservices></Manageservices></Privateroute>,
-        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
       },
       {
         path:"update/:id",
         element:<Privateroute><Updateservices></Updateservices></Privateroute>,
-        loader: ({params}) => fetch(`https://backend-gztzc30ti-rashaduldev.vercel.app/services/${params.id}`)
+        loader: ({params}) => fetch(`https://backend-nu-sage-10.vercel.app/services/$${params._id}`)
       },
       {
         path:"schedules",
         element:<Privateroute><MySchedules></MySchedules></Privateroute>,
-        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/booking')
+        loader:()=>fetch('https://backend-nu-sage-10.vercel.app/booking')
       },
       {
         path:"myservice",
         element:<Privateroute><Myservices></Myservices></Privateroute>,
-        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
 
       },
       {
         path: "viewdetails/:id",
         element: <Privateroute><Viewdetails /></Privateroute>,
-        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
       },
       {
         path:"allservices",
         element:<Allservices></Allservices>,
-        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services')
+        loader:()=>fetch('https://backend-nu-sage-10.vercel.app/services')
         
       },
       {

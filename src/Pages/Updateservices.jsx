@@ -63,7 +63,7 @@ const Updateservices = () => {
     };
     console.log(updateService);
 
-    fetch(`https://backend-gztzc30ti-rashaduldev.vercel.app/services/${_id}`, {
+    fetch(`https://backend-nu-sage-10.vercel.app/services/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
