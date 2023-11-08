@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Authcontext, auth } from "../Provider/Authprovider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import axios from "axios";
 
 
 const Login = () => {
@@ -43,8 +44,15 @@ const Login = () => {
       signin(email, password)
         .then(result => {
           toast.success('Login Successful');
-          setSuccess(result);
+          setSuccess(result.user);
+          const user={email};
           navigate(location?.state ? location.state : '/');
+          // get access token
+          axios.post('http://localhost:3000/jwt',user,{withCredentials:true})
+          .then(res=>{
+            console.log(res.data)
+          })
+
         })
         .catch(error => {
           toast.error(error.message);
