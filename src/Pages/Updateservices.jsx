@@ -4,8 +4,12 @@ import { Authcontext } from "../Provider/Authprovider";
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLoaderData } from "react-router-dom";
 
 const Updateservices = () => {
+  const updateloader=useLoaderData();
+  console.log(updateloader);
+  const {_id,pictureURL,serviceName,description,price,userName,useremail}=updateloader;
     const { user } = useContext(Authcontext);
     console.log(user);
   
@@ -25,15 +29,7 @@ const Updateservices = () => {
         const { name, value } = e.target;
         setServiceData({ ...serviceData, [name]: value });
       };
-    //   const resetForm = () => {
-    //     setServiceData({
-    //       pictureURL: '',
-    //       serviceName: '',
-    //       price: '',
-    //       serviceArea: '',
-    //       description: '',
-    //     });
-    //   };
+
     const handleFormServices = (event) => {
         event.preventDefault();
         
@@ -59,23 +55,23 @@ const Updateservices = () => {
         };
         console.log(serviceUser);
     
-        // fetch('http://localhost:3000/services', {
-        //   method: 'POST',
-        //   headers: {
-        //     'content-type': 'application/json',
-        //   },
-        //   body: JSON.stringify(serviceUser),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     toast.success('Services added successfully');
-        //     console.log(data);
-        //     resetForm();
-        //   })
-        //   .catch((error) => {
-        //     toast.error('Error adding services');
-        //     console.error(error);
-        //   });
+        fetch('http://localhost:3000/services', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(serviceUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success('Services added successfully');
+            console.log(data);
+            // resetForm();
+          })
+          .catch((error) => {
+            toast.error('Error adding services');
+            console.error(error);
+          });
       };
     return (
         <div>
@@ -85,7 +81,7 @@ const Updateservices = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
             Services Update
-
+            {_id}
             <div>
             <form onSubmit={handleFormServices} className="max-w-full bg-white border border-gray-200 rounded-[36px] p-10 my-5">
         <h2 className="font-bold text-center text-4xl mb-10">Update Service</h2>

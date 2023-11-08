@@ -44,6 +44,18 @@ const Navber = () => {
 >
 Services
 </NavLink>
+    <NavLink
+  to="/manageservice"
+  style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "black",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }}
+>
+Manage-Services
+</NavLink>
     </>
   );
 

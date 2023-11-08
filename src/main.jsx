@@ -22,6 +22,7 @@ import Allservices from './Pages/Allservices';
 import Viewdetails from './Pages/Viewdetails';
 import Service from './Components/Service';
 import Updateservices from './Pages/Updateservices';
+import Manageservices from './Pages/Manageservice';
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,14 @@ const router = createBrowserRouter([
         element:<Privateroute><Addservices></Addservices></Privateroute>
       },
       {
+        path:"manageservice",
+        element:<Privateroute><Manageservices></Manageservices></Privateroute>,
+        loader: () => fetch('http://localhost:3000/services/')
+      },
+      {
         path:"update/:id",
         element:<Privateroute><Updateservices></Updateservices></Privateroute>,
-        loader:()=>fetch('http://localhost:3000/booking')
+        loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
       },
       {
         path:"schedules",
