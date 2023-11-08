@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -16,6 +17,7 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
 
   // const [registerError, setRegisterError] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [mgssuccess, setSuccess] = useState('');
   // const [showPassword, setShowPassword] = useState(false);
   // const emailRef = useRef(null);
