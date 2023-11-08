@@ -48,7 +48,7 @@ const Login = () => {
           const user={email};
           navigate(location?.state ? location.state : '/');
           // get access token
-          axios.post('http://localhost:3000/jwt',user,{withCredentials:true})
+          axios.post('https://backend-gztzc30ti-rashaduldev.vercel.app/jwt',user,{withCredentials:true})
           .then(res=>{
             console.log(res.data)
           })

@@ -50,7 +50,7 @@ const Viewdetails = () => {
         prices
     }
     console.log('object',bokking)
-    fetch('http://localhost:3000/booking', {
+    fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/booking', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

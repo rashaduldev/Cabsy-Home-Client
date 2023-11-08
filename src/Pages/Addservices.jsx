@@ -59,7 +59,7 @@ const Addservices = () => {
     };
     console.log(serviceUser);
 
-    fetch('http://localhost:3000/services', {
+    fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

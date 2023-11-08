@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader:()=>fetch('http://localhost:3000/services'),
+        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services'),
       },
       {
         path:"addservice",
@@ -43,33 +43,33 @@ const router = createBrowserRouter([
       {
         path:"manageservice",
         element:<Privateroute><Manageservices></Manageservices></Privateroute>,
-        loader: () => fetch('http://localhost:3000/services/')
+        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
       },
       {
         path:"update/:id",
         element:<Privateroute><Updateservices></Updateservices></Privateroute>,
-        loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
+        loader: ({params}) => fetch(`https://backend-gztzc30ti-rashaduldev.vercel.app/services/${params.id}`)
       },
       {
         path:"schedules",
         element:<Privateroute><MySchedules></MySchedules></Privateroute>,
-        loader:()=>fetch('http://localhost:3000/booking')
+        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/booking')
       },
       {
         path:"myservice",
         element:<Privateroute><Myservices></Myservices></Privateroute>,
-        loader: () => fetch('http://localhost:3000/services/')
+        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
 
       },
       {
         path: "viewdetails/:id",
         element: <Privateroute><Viewdetails /></Privateroute>,
-        loader: () => fetch('http://localhost:3000/services/')
+        loader: () => fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services/')
       },
       {
         path:"allservices",
         element:<Allservices></Allservices>,
-        loader:()=>fetch('http://localhost:3000/services')
+        loader:()=>fetch('https://backend-gztzc30ti-rashaduldev.vercel.app/services')
         
       },
       {
