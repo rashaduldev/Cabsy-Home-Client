@@ -28,7 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    
     errorElement: <Errorpage></Errorpage>,
     children:[
       {
@@ -43,12 +42,12 @@ const router = createBrowserRouter([
       {
         path:"manageservice",
         element:<Privateroute><Manageservices></Manageservices></Privateroute>,
-        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services')
       },
       {
         path:"update/:id",
         element:<Privateroute><Updateservices></Updateservices></Privateroute>,
-        loader: ({params}) => fetch(`https://backend-nu-sage-10.vercel.app/services/$${params._id}`)
+        loader: ({params}) => fetch(`https://backend-nu-sage-10.vercel.app/services/${params.id}`)
       },
       {
         path:"schedules",
@@ -58,13 +57,13 @@ const router = createBrowserRouter([
       {
         path:"myservice",
         element:<Privateroute><Myservices></Myservices></Privateroute>,
-        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services')
 
       },
       {
         path: "viewdetails/:id",
         element: <Privateroute><Viewdetails /></Privateroute>,
-        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services/')
+        loader: () => fetch('https://backend-nu-sage-10.vercel.app/services')
       },
       {
         path:"allservices",

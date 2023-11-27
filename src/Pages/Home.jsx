@@ -23,8 +23,8 @@ const Home = () => {
       <div className="mx-10 space-y-10">
         <h2 className="text-6xl font-bold text-center">Popular Services</h2>
        <div className="grid grid-cols-1 lg:grid-cols-2">
-       {homeLoader.slice(0, displayCount).map((service) => (
-          <div key={service} className="mx-10 my-5">
+       {Array.isArray(homeLoader) && homeLoader.slice(0, displayCount).map((service) => (
+          <div key={service._id} className="mx-10 my-5">
             {/* Your card components... */}
             <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
         <img className="w-full p-3 h-80 rounded-t-xl" src={service.pictureURL} alt="Image Description" />

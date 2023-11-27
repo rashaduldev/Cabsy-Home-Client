@@ -5,7 +5,7 @@ const Errorpage = () => {
     const error=useRouteError();
     console.log(error);
     return (
-        <div className="bg-gray-200 h-screen flex flex-col justify-center items-center">
+        <div className="bg-gray-200 h-screen flex flex-col justify-center items-center w-full">
         <div className=" p-8 rounded-lg text-center">
             {/* <p>{error.statusText || error.message}</p> */}
             {
@@ -20,7 +20,7 @@ const Errorpage = () => {
           
         </div>
   
-    </div>
+         </div>
     );
 };
 
